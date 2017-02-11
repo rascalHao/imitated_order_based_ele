@@ -1,6 +1,6 @@
 # imitated_order_based_ele
 
-> A Vue.js project (本项目素材来自于慕课网)
+> A Vue.js project (本项目所有素材来自于慕课网)
 
 ## Build Setup
 
