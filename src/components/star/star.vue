@@ -1,43 +1,43 @@
 <template>
 	<div class="star" :class="starType">
-		<span v-for="itemClass in itemClasses" :class="itemClass" class="star-item"></span>
+		<span v-for="itemClass in itemClasses" :class="itemClass" class="star-item" track-by="$index"></span>
 	</div>
 </template>
 
 <script>
 	const LENGTH = 5
-	const CLS_on = 'on'
-	const CLS_half = 'half'
-	const CLS_off = 'off'
+	const CLS_ON = 'on'
+	const CLS_HALF = 'half'
+	const CLS_OFF = 'off'
 	export default {
-		props: ['size', 'number'],
+		props: ['size', 'score'],
 		computed: {
 			starType() {
 				return 'star-' + this.size
 			},
 			itemClasses() {
 				let result = []
-				let score = Math.floor(this.score*2) / 2
-				let hasDecimal = score % 1 != 0
+				let score = Math.floor(this.score * 2) / 2
+				let hasDecimal = score % 1 !== 0
 				let integer = Math.floor(score)
-				for (let i=0; i<integer;i++){
-					result.push(CLS_on)
+				for (let i = 0; i < integer; i++) {
+					result.push(CLS_ON)
 				}
-				if(hasDecimal){
-					result.push(CLS_half)
+				if (hasDecimal) {
+					result.push(CLS_HALF)
 				}
-				while (result.length < LENGTH){
-					result.push(CLS_off)
+				while (result.length < LENGTH) {
+					result.push(CLS_OFF)
 				}
 
-				return result;
+				return result
 			}
 		}
 	}
 </script>
 
 <style lang="stylus">
-	@import('../../stylus/mixin')
+	@import('../../common/stylus/mixin')
 	.star
 		font-size 0
 		.star-item
